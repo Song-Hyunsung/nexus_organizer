@@ -178,7 +178,7 @@ class App extends Component {
           </Col>
           <Col>
             <div><p>Refreshing in </p><span id="minutes"></span>:<span id="seconds"></span></div>
-            <Button bsStyle="success" bsSize="sm" onClick={() => this.refreshPage()}>Manually Refresh</Button>
+            <Button bsStyle="success" bsSize="sm" onClick={() => this.refreshPage()}>Manually Refresh to See Team Update</Button>
           </Col>
         </Row>
 

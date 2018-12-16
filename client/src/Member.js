@@ -74,6 +74,7 @@ class Member extends Component {
 					<div className="teamelement">
 						<p><strong>{this.state.username}</strong></p>
 						<p>{this.state.tier}</p>
+						<p>{this.state.positionOne} {this.state.positionTwo}</p>
 						<p>
 							<select value={this.state.team} onChange={this.handleTeam}>
 							    <option value="not picked">Not Picked</option>
@@ -89,6 +90,7 @@ class Member extends Component {
 						<div className="teamelement">
 							<p><strong>{this.state.username}</strong></p>
 							<p>{this.state.tier}</p>
+							<p>{this.state.positionOne} {this.state.positionTwo}</p>
 							<p>
 								<select value={this.state.team} onChange={this.handleTeam}>
 								    <option value="not picked">Not Picked</option>
