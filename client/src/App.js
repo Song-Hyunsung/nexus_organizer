@@ -14,21 +14,31 @@ class App extends Component {
       positionTwo: "fill",
       tier: "",
       teamList: ["Demacia", "Noxus", "Ionia", "Zaun"],
+      clock: "",
     };
 
   }
 
   componentWillMount(){
+    this.getPlayer();
+    this.repeatAjax();
+  }
+
+  repeatAjax(){
+    setInterval(() => {
+      this.getPlayer();
+    }, 10000);
+  }
+
+  getPlayer(){
     fetch('/api', {
       method: "GET",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
     }).then(response => {
-      console.log(response);
       return response.json();
     }).then(body => {
-      console.log(body.players);
       this.setState({
         playerList: body.players,
       })
@@ -177,8 +187,7 @@ class App extends Component {
             <h6> Built using Express (Node.js), React, PostgreSQL </h6>
           </Col>
           <Col>
-            <div><p>Refreshing in </p><span id="minutes"></span>:<span id="seconds"></span></div>
-            <Button bsStyle="success" bsSize="sm" onClick={() => this.refreshPage()}>Manually Refresh to See Team Update</Button>
+            <div>Updating in <span id="time">10</span> seconds</div>
           </Col>
         </Row>
 

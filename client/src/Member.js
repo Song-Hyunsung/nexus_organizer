@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col } from 'react-bootstrap';
+import { Button, Col } from 'react-bootstrap';
 import './App.css';
 
 class Member extends Component {
@@ -53,6 +53,23 @@ class Member extends Component {
 		})
 	}
 
+	deletePlayer(cb){
+		fetch('/api/' + this.state.id, {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json; charset=utf-8",
+			},
+		}).then(response => {
+			console.log("Deleting Player");
+			return response.json();
+		}).then(body => {
+			console.log(body);
+			cb();
+		}).catch(() => {
+			console.log("Error deleting a player");
+		})
+	}
+
     handleTeam = (event) => {
       this.setState({ 
       		team: event.target.value
@@ -74,8 +91,8 @@ class Member extends Component {
 					<div className="teamelement">
 						<p><strong>{this.state.username}</strong></p>
 						<p>{this.state.tier}</p>
-						<p><strong>{this.state.positionOne} {this.state.positionTwo}</strong></p>
-						<p>
+						<p><strong>{this.state.positionOne} {this.state.positionTwo} <Button className="deleteplayer" bsStyle="warning" bsSize="sm" onClick={() => this.deletePlayer(this.refreshPage)}>Delete</Button></strong></p>
+						<p className="toppadding">
 							<select value={this.state.team} onChange={this.handleTeam}>
 							    <option value="not picked">Not Picked</option>
 							    <option value="demacia">Demacia</option>
@@ -90,8 +107,8 @@ class Member extends Component {
 						<div className="teamelement">
 							<p><strong>{this.state.username}</strong></p>
 							<p>{this.state.tier}</p>
-							<p><strong>{this.state.positionOne} {this.state.positionTwo}</strong></p>
-							<p>
+							<p><strong>{this.state.positionOne} {this.state.positionTwo} <Button className="deleteplayer" bsStyle="warning" bsSize="sm" onClick={() => this.deletePlayer(this.refreshPage)}>Delete</Button></strong></p>
+							<p className="toppadding">
 								<select value={this.state.team} onChange={this.handleTeam}>
 								    <option value="not picked">Not Picked</option>
 								    <option value="demacia">Demacia</option>

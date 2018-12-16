@@ -66,4 +66,16 @@ router.delete('/', (req, res) => {
 	})
 })
 
+router.delete('/:id', (req, res) => {
+	Player.findById(req.params.id).then((player) => {
+		player.destroy().then(() => {
+			res.json({
+				msg: "destroyed",
+			})
+		})
+	}).catch(() => {
+		res.status(400);
+	})
+})
+
 module.exports = router;
