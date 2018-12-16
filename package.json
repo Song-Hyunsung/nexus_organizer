@@ -2,6 +2,10 @@
   "name": "inhouselist",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": "8.11.4",
+    "npm": "6.4.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,9 +21,5 @@
     "sequelize-cli": "^5.4.0"
   },
   "devDependencies": {},
-  "description": "",
-  "engines": {
-    "node": "8.11.4",
-    "npm": "6.4.1",
-  }
+  "description": ""
 }
