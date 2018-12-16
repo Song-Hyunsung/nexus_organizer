@@ -4,11 +4,18 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-// function refreshInterval(){
-// 	window.location.reload();
-// }
+function refreshInterval(){
+	window.location.reload();
+}
 
-// setInterval(refreshInterval, 20000);
+setInterval(refreshInterval, 20000);
+
+var sec = 20;
+function pad ( val ) { return val > 9 ? val : "0" + val; }
+setInterval( function(){
+  document.getElementById("seconds").innerHTML=pad(--sec%60);
+  document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
+}, 1000);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

@@ -177,7 +177,8 @@ class App extends Component {
             <h6> Built using Express (Node.js), React, PostgreSQL </h6>
           </Col>
           <Col>
-            <Button bsStyle="success" bsSize="sm" onClick={() => this.refreshPage()}>Refresh If Team Is Not Updated</Button>
+            <div><p>Refreshing in </p><span id="minutes"></span>:<span id="seconds"></span></div>
+            <Button bsStyle="success" bsSize="sm" onClick={() => this.refreshPage()}>Manually Refresh</Button>
           </Col>
         </Row>
 
@@ -262,5 +263,7 @@ class App extends Component {
     );
   }
 }
+
+
 
 export default App;
