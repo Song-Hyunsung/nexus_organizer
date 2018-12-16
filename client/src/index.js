@@ -8,9 +8,9 @@ function refreshInterval(){
 	window.location.reload();
 }
 
-setInterval(refreshInterval, 40000);
+setInterval(refreshInterval, 59000);
 
-var sec = 40;
+var sec = 59;
 function pad ( val ) { return val > 9 ? val : "0" + val; }
 setInterval( function(){
   document.getElementById("seconds").innerHTML=pad(--sec%60);
