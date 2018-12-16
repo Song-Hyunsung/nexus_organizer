@@ -20,6 +20,14 @@ app.use(expressSession(({
 const controllers = require('./controllers');
 app.use(controllers)
 
+if(process.env.NODE_ENV === 'production'){
+	app.use(express.static('client/build'));
+}
+
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+})
+
 
 // First, make sure the Database tables and models are in sync
 // then, start up the server and start listening.
