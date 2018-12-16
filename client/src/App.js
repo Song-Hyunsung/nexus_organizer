@@ -9,10 +9,10 @@ class App extends Component {
 
     this.state = {
       playerList: [],
-      username: "unknown player",
+      username: "",
       positionOne: "fill",
       positionTwo: "fill",
-      tier: "unknown tier",
+      tier: "",
       teamList: ["Demacia", "Noxus", "Ionia", "Zaun"],
     };
 
